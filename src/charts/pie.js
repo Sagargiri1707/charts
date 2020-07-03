@@ -1,5 +1,6 @@
 import React,{useEffect} from 'react';
 import {Chart} from 'chart.js'
+import { schools } from '../data';
 
 
 function Pie(props) {
@@ -8,12 +9,13 @@ function Pie(props) {
         renderChart(myChart)
     })
     const { XaxisData, YaxisData, XAxis, YAxis } = props.location.state
+    console.log(XaxisData,YaxisData);
     
     const renderChart = (myChart) => {
         new Chart(myChart, {
             type: 'pie',
             data: {
-                labels: XaxisData,
+                labels: schools,
                 datasets: [
                     {
                         label:XAxis,
