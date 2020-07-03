@@ -1,4 +1,14 @@
-function mean(numbers) {
+
+import { data, schools,clubs,location } from '../data'
+
+const sigmoid = (z) => {
+    var val = z / 500
+    if (val < 5)
+        val = 5
+    return val
+}
+export function mean(numbers) {
+
     var total = 0, i;
     for (i = 0; i < numbers.length; i += 1) {
         total += numbers[i];
@@ -7,12 +17,8 @@ function mean(numbers) {
 }
  
 
-mean(...[1, 2, 3]); // 2
-mean(...[0,1,2,3,4,5,6,7,8,9,10]); // 5
-mean(...[1,2,3]); // 2
- 
 
-function median(numbers) {
+export function median(numbers) {
     var median = 0, numsLen = numbers.length;
     numbers.sort();
  
@@ -27,28 +33,100 @@ function median(numbers) {
     return median;
 }
  
-function mode(numbers) {
-    var modes = [], count = [], i, number, maxIndex = 0;
  
-    for (i = 0; i < numbers.length; i += 1) {
-        number = numbers[i];
-        count[number] = (count[number] || 0) + 1;
-        if (count[number] > maxIndex) {
-            maxIndex = count[number];
+export const findXAxisData = (XAxis='',Graph) => {
+    var XaxisData = []
+    var i
+     
+    if (Graph === 'combo') {
+        for ( i in data) {
+            XaxisData.push(data[i][XAxis[0]])
         }
     }
- 
-    for (i in count)
-        if (count.hasOwnProperty(i)) {
-            if (count[i] === maxIndex) {
-                modes.push(Number(i));
+    if (XAxis === 'school') {        
+        XaxisData = Array.from(schools)
+    }
+    else if (XAxis === 'location') {
+        XaxisData=Array.from(location)
+    }
+    else if (XAxis === 'clubs') {
+        XaxisData=Array.from(clubs)
+    }
+    else if (Graph === 'scatter' || Graph === 'bubble') {
+        
+        for (i in data) {
+            XaxisData.push(data[i][XAxis])
+        }
+    }
+    
+        return XaxisData
+}
+export const findYAxisData = (YAxis='',Graph,XAxis='') => {
+    var YaxisData = []
+    console.log(YAxis,XAxis);
+    
+    var i
+    
+    if (Graph === 'combo') {
+        console.log("gere");
+        
+        for (i = 0; i < YAxis.length;i++) {            
+            var d=[]
+            for (var j in data) {
+                d.push(data[j][YAxis[i]])
+            }
+            YaxisData.push(d)
+        }
+        
+    }
+    else if (Graph === 'scatter' || Graph === 'bubble') {
+        
+        for (i in data) {
+            YaxisData.push({x:data[i][XAxis],y:data[i][YAxis],r:sigmoid(data[i][YAxis])})
+        }
+        
+    }
+    else if (YAxis === '') {
+        
+        for ( i in data) {
+            YaxisData.push(data[i][YAxis])
+        }
+    }
+    else if (YAxis !== '')
+        {    
+            for (i in data) {
+                YaxisData.push(data[i][YAxis])
             }
         }
- 
-    return modes;
+        return YaxisData
 }
- 
 
-module.exports = {
-    mean,median,mode
+export const findData = (Func, Yaxis) => {
+    console.log('infinddata',Func,Yaxis);
+    
+    if (Func === 'mean') {        
+        
+            return Array(data.length).fill(mean(Yaxis))
+            
+    }
+    else if (Func[0] === 'mean') {
+         var d=[]
+        Yaxis.map((data,index) => (
+            d.push(Array(data.length).fill(mean(Yaxis[index])))
+        ))
+        
+        return d;
+    }
+    else if (Func === 'median') {
+        
+            return Array(data.length).fill(median(Yaxis))
+    }    
+    else if (Func[0] === 'median') {
+         d=[]
+        Yaxis.map((data,index) => (
+            d.push(Array(data.length).fill(median(Yaxis[index])))
+        ))
+        return d;
+    
+    }
 }
