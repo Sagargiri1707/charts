@@ -9,7 +9,7 @@ function Bubble(props) {
         renderChart(myChart)
     })
     
-    const {  YaxisData, XAxis, YAxis } = props.location.state||{}
+    const {  YaxisData, XAxis, YAxis } = props.location.state
     //console.log(XaxisData);
     
     

@@ -1,5 +1,6 @@
 import React,{useEffect} from 'react';
 import {Chart} from 'chart.js'
+import { schools } from '../data';
 
 
 function Scatter(props) {
@@ -7,7 +8,7 @@ function Scatter(props) {
         var myChart = document.getElementById('myChart').getContext('2d')
         renderChart(myChart)
     })
-    const { XaxisData, YaxisData, XAxis, YAxis } = props.location.state||{}
+    const {  YaxisData, XAxis, YAxis } = props.location.state||{}
     //console.log(XaxisData);
     //console.log(YaxisData);
     
@@ -16,11 +17,11 @@ function Scatter(props) {
         new Chart(myChart, {
             type: 'scatter',
             data: {
-                labels: XaxisData,
-                datasets:  YaxisData.map((data, index) => {
+                labels: schools,
+                datasets:  schools.map((data, index) => {
                     return  {
-                        label:YAxis[index],
-                        data: data,
+                        label:data,
+                        data: [YaxisData[index]],
                         backgroundColor: '#'+Math.random().toString(16).substr(-6),
                         borderColor: '#111',
                     }
