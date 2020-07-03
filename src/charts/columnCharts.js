@@ -18,18 +18,18 @@ function ColumnChart(props) {
             type: 'horizontalBar',
             data: {
                 labels: XaxisData,
-                datasets: [
+                datasets: 
                     extra.length===0?
-                    {
+                    [{
                         label:YAxis,
                         data: YaxisData,
                         
                         borderColor: 'gray',
                         fill: true,
                         backgroundColor: 'gray',
-                    }
+                    }]
                         :
-                        {
+                       [ {
                             label:YAxis,
                             data: YaxisData,
                             

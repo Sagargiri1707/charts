@@ -17,9 +17,9 @@ function Bar(props) {
             type: 'bar',
             data: {
                 labels: YaxisData,
-                datasets: [
+                datasets: 
                     extra.length===0?
-                    {
+                    [{
                         label:YAxis,
                         data: YaxisData,
                         
@@ -27,9 +27,9 @@ function Bar(props) {
                         fill: true,
                         backgroundColor: '#'+Math.random().toString(16).substr(-6),
                         
-                    }
+                    }]
                         :
-                        {
+                        [{
                             label:YAxis,
                             data: YaxisData,
                             

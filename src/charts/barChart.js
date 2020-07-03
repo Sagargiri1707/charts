@@ -8,23 +8,24 @@ function Bar(props) {
     })
 
         const { XaxisData, YaxisData, XAxis, YAxis, extra, extravalue } = props.location.state ||{}
-
+    console.log(extra.length);
+    
     const renderChart = (myChart) => {
         new Chart(myChart, {
             type: 'bar',
             data: {
                 labels: XaxisData,
-                datasets: [
+                datasets: 
                     extra.length===0?
-                    {
+                    [{
                         label:YAxis,
                         data: YaxisData,
                         
                         borderColor: 'gray',
                         fill: true,
                         backgroundColor: 'gray',
-                    }:
-                        {
+                    }]:
+                      [  {
                             label:YAxis,
                             data: YaxisData,
                             

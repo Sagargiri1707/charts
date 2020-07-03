@@ -15,18 +15,18 @@ function Area(props) {
             type: 'line',
             data: {
                 labels: XaxisData,
-                datasets: [
+                datasets: 
                     extra.length===0?
-                    {
+                    [{
                         label:YAxis,
                         data: YaxisData,
                         
                         borderColor: 'gray',
                         fill: true,
                         backgroundColor: 'gray',
-                    }
+                    }]
                         :
-                        {
+                        [{
                             label:YAxis,
                             data: YaxisData,
                             
@@ -40,8 +40,8 @@ function Area(props) {
                             borderColor: 'red',
                             fill: false,
                             backgroundColor: 'red',
-                        }   
-                ]
+                        }  ] 
+                
             },
             options: {
                 title: {
