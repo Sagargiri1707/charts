@@ -11,7 +11,7 @@ function ColumnChart(props) {
     console.log(1);
     
     
-    const { XaxisData, YaxisData, XAxis, YAxis,extra,extravalue } = props.location.state
+    const { XaxisData, YaxisData, XAxis, YAxis,extra,extravalue } = props.location.state||{}
     
     const renderChart = (myChart) => {
         new Chart(myChart, {

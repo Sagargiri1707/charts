@@ -8,7 +8,7 @@ function Bar(props) {
         console.log(11111);
         
     })
-    var { YaxisData, XAxis, YAxis,extra,extravalue } = props.location.state
+    var { YaxisData, XAxis, YAxis,extra,extravalue } = props.location.state||{}
     console.log(YaxisData);
     YaxisData=YaxisData.sort(function(a, b){return a - b})
     

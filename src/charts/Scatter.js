@@ -7,7 +7,7 @@ function Scatter(props) {
         var myChart = document.getElementById('myChart').getContext('2d')
         renderChart(myChart)
     })
-    const { XaxisData, YaxisData, XAxis, YAxis } = props.location.state
+    const { XaxisData, YaxisData, XAxis, YAxis } = props.location.state||{}
     //console.log(XaxisData);
     //console.log(YaxisData);
     

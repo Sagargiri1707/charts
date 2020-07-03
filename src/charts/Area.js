@@ -7,7 +7,7 @@ function Area(props) {
         var myChart = document.getElementById('myChart').getContext('2d')
         renderChart(myChart)
     } )
-    const { XaxisData, YaxisData, XAxis, YAxis,extra,extravalue } = props.location.state
+    const { XaxisData, YaxisData, XAxis, YAxis,extra,extravalue } = props.location.state||{}
     console.log(extravalue);
     
     const renderChart = (myChart) => {
