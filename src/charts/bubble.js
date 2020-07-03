@@ -7,7 +7,7 @@ function Bubble(props) {
     useEffect(() => {
         var myChart = document.getElementById('myChart').getContext('2d')
         renderChart(myChart)
-    }, [])
+    })
     
     const {  YaxisData, XAxis, YAxis } = props.location.state
     //console.log(XaxisData);

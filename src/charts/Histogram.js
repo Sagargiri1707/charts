@@ -5,7 +5,9 @@ function Bar(props) {
     useEffect(() => {
         var myChart = document.getElementById('myChart').getContext('2d')
         renderChart(myChart)
-    }, [])
+        console.log(11111);
+        
+    })
     var { YaxisData, XAxis, YAxis,extra,extravalue } = props.location.state
     console.log(YaxisData);
     YaxisData=YaxisData.sort(function(a, b){return a - b})

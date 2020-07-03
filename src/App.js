@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import 'materialize-css/dist/css/materialize.css'
 
@@ -16,8 +16,7 @@ import Histogram from './charts/Histogram'
 import Combo from './charts/combo'
 
 function App() {
-  useEffect(() => {
-  }, [])
+ 
   return (
     <div>
             <Link to="/"><button className="btn btn-wave ">Table</button></Link>

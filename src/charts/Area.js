@@ -6,7 +6,7 @@ function Area(props) {
     useEffect(() => {
         var myChart = document.getElementById('myChart').getContext('2d')
         renderChart(myChart)
-    }, [])
+    } )
     const { XaxisData, YaxisData, XAxis, YAxis,extra,extravalue } = props.location.state
     console.log(extravalue);
     

@@ -6,7 +6,7 @@ function ColumnChart(props) {
     useEffect(() => {
         var myChart = document.getElementById('myChart').getContext('2d')
         renderChart(myChart)
-    }, [])
+    })
     console.log(props);
     console.log(1);
     
